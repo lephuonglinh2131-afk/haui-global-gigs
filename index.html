@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaUI Global Gigs - Student Skill & Culture Exchange Platform</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff9800;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* App Banner / Slogan */
+        .slogan-card {
+            background: linear-gradient(135deg, #0056b3, #0088cc);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Post Creation Form */
+        .post-form-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .post-form-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        button.btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        button.btn-submit:hover {
+            background-color: #e68a00;
+        }
+
+        /* Feed Section */
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Gig Cards */
+        .gig-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .gig-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .user-details h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .user-details span {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .gig-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .badge-skill { background-color: #e3f2fd; color: #0d47a1; }
+        .badge-culture { background-color: #fff3e0; color: #e65100; }
+
+        .gig-exchange {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .gig-exchange div {
+            margin-bottom: 6px;
+        }
+
+        .btn-connect {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-connect:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>HaUI Global Gigs</h1>
+            <p>Faculty of Foreign Languages - Student Exchange Platform</p>
+        </div>
+        <div>
+            <span style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 20px; font-size: 13px;">HaUI Campus #1 (Nhon)</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Banner -->
+        <div class="slogan-card">
+            <h2 style="margin: 0 0 8px 0;">Bridging Local Talent & Global Perspectives</h2>
+            <p style="margin: 0; font-size: 14px;">Exchange your skills, guide local tours, and practice languages seamlessly!</p>
+        </div>
+
+        <!-- Post Form -->
+        <div class="post-form-card">
+            <h3>Post a New Exchange Gig</h3>
+            <form id="gigForm">
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="Your Name & Major (e.g., Linh - English)" required>
+                    <select id="gigCategory">
+                        <option value="skill">Skill Exchange (Coding, Design, Languages)</option>
+                        <option value="culture">Cultural Gig (Food Tour, Campus Guide)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="offerText" placeholder="WHAT YOU OFFER (e.g., Local Nhon Food Tour)" required>
+                    <input type="text" id="needText" placeholder="WHAT YOU NEED (e.g., 30-min English Speaking practice)" required>
+                </div>
+                <button type="submit" class="btn-submit">+ Post Your Gig Now</button>
+            </form>
+        </div>
+
+        <!-- Feed Section -->
+        <div class="feed-header">
+            <h3>Real-Time Exchange Feed</h3>
+            <div>
+                <select id="filterCategory" onchange="filterGigs()" style="width: auto;">
+                    <option value="all">All Categories</option>
+                    <option value="skill">Skill Exchange</option>
+                    <option value="culture">Cultural Gigs</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Cards Feed Container -->
+        <div class="feed-grid" id="feedContainer">
+            <!-- Sample Gig 1 -->
+            <div class="gig-card" data-category="skill">
+                <span class="gig-badge badge-skill">Skill Exchange</span>
+                <div class="user-info">
+                    <div class="user-avatar" style="background:#e1f5fe;">👨‍💻</div>
+                    <div class="user-details">
+                        <h4>Viet (HaUI Student)</h4>
+                        <span>IT Major • Campus 1</span>
+                    </div>
+                </div>
+                <div class="gig-exchange">
+                    <div>🟢 <strong>Offer:</strong> Basic Python / IT Assignment Help</div>
+                    <div>🟠 <strong>Need:</strong> Basic Vietnamese practice & pronunciation</div>
+                </div>
+                <button class="btn-connect" onclick="alert('Connection request sent to Viet!')">Connect & Match</button>
+            </div>
+
+            <!-- Sample Gig 2 -->
+            <div class="gig-card" data-category="culture">
+                <span class="gig-badge badge-culture">Cultural Gig</span>
+                <div class="user-info">
+                    <div class="user-avatar" style="background:#fff3e0;">🇩🇪</div>
+                    <div class="user-details">
+                        <h4>Lukas (Exchange Student)</h4>
+                        <span>Germany • International Office</span>
+                    </div>
+                </div>
+                <div class="gig-exchange">
+                    <div>🟢 <strong>Offer:</strong> Native English / German support</div>
+                    <div>🟠 <strong>Need:</strong> Local Nhon market & Banh Mi exploration</div>
+                </div>
+                <button class="btn-connect" onclick="alert('Connection request sent to Lukas!')">Connect & Match</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JS logic to handle new Gig posting in real-time
+        document.getElementById('gigForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const category = document.getElementById('gigCategory').value;
+            const offer = document.getElementById('offerText').value;
+            const need = document.getElementById('needText').value;
+
+            const isSkill = category === 'skill';
+            const badgeClass = isSkill ? 'badge-skill' : 'badge-culture';
+            const badgeLabel = isSkill ? 'Skill Exchange' : 'Cultural Gig';
+            const avatarIcon = isSkill ? '🎓' : '🌏';
+
+            const newCard = document.createElement('div');
+            newCard.className = 'gig-card';
+            newCard.setAttribute('data-category', category);
+            
+            newCard.innerHTML = `
+                <span class="gig-badge ${badgeClass}">${badgeLabel}</span>
+                <div class="user-info">
+                    <div class="user-avatar">${avatarIcon}</div>
+                    <div class="user-details">
+                        <h4>${name}</h4>
+                        <span>Just now • HaUI Campus</span>
+                    </div>
+                </div>
+                <div class="gig-exchange">
+                    <div>🟢 <strong>Offer:</strong> ${offer}</div>
+                    <div>🟠 <strong>Need:</strong> ${need}</div>
+                </div>
+                <button class="btn-connect" onclick="alert('Connection request sent!')">Connect & Match</button>
+            `;
+
+            const feed = document.getElementById('feedContainer');
+            feed.insertBefore(newCard, feed.firstChild);
+
+            // Reset form
+            document.getElementById('gigForm').reset();
+        });
+
+        // Category Filter Logic
+        function filterGigs() {
+            const filterValue = document.getElementById('filterCategory').value;
+            const cards = document.querySelectorAll('.gig-card');
+
+            cards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
